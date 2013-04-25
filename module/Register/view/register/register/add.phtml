@@ -1,0 +1,68 @@
+<div class="hero-unit">
+<?php
+
+echo '<b><a href="./">Home</a></b>';
+$title = 'Registration Form';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php 
+$form = $this->form;
+$form->setAttribute('action', $this->url('register', array('action' => 'add')));
+$form->prepare();
+?>
+<?php echo $this->form()->openTag($form);?>
+<?php echo $this->formHidden($form->get('id'));?>
+<br /><br />
+<?php if(isset($msg)){
+        echo $msg;
+    }?>
+	<table align ="center">
+		<tr>
+			<th><font color='green'>Personal Information</font> </th>
+		</tr>
+
+		<tr>
+			<td><b>First Name:<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('firstname'));;?></td>
+		</tr>
+		<tr>	
+			<td><b>Last Name:<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('lastname'));?></td>
+		</tr>
+		<tr>
+			<td><b>Email Address:<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('email'));?></td>
+		</tr>
+		<tr>
+			<td><b>Confirm Email Address:<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('confirmemail'));?></td>
+		</tr>
+		<tr>
+			<th> <font color='green'>Company or Institution Information</font></th>
+		</tr>
+
+		<tr>
+			<td><b>Name:</b></td><td><?php echo $this->formRow($form->get('companyname'));?></td>
+		</tr>
+		<tr>		
+			<td><b>Street Address</b></td><td><?php echo $this->formRow($form->get('streetaddress'));?></td>
+		</tr>
+
+		<tr>
+			<td><b>City , State, Postal Code</b></td><td><?php echo $this->formRow($form->get('citystate'));?></td>
+		</tr>
+		<tr>
+			<td><b>Business Phone<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('businessphone'));?></td>
+		</tr>
+
+		<tr>
+			<th><font color='green'>Address for invoicing (if different from Company/Institution address)</font></th>
+		</tr>
+
+		<tr>
+			<td><b>Invoice Address<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('inovoiceaddress'));?></td>
+		</tr>
+		<tr>
+			<td><?php echo $this->formSubmit($form->get('Register'));?></td>
+		</tr>
+	
+	</table>
+<?php echo $this->form()->closeTag();?>
+</div>
