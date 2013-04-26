@@ -1,8 +1,10 @@
+
+<body>
 <div class="hero-unit">
 <?php
 
 echo '<b><a href="./">Home</a></b>';
-$title = 'Registration Form';
+$title = 'International Merge Technologies Conference';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
@@ -13,13 +15,15 @@ $form->prepare();
 ?>
 <?php echo $this->form()->openTag($form);?>
 <?php echo $this->formHidden($form->get('id'));?>
-<br /><br />
+<br />
 <?php if(isset($msg)){
-        echo $msg;
+        echo '<b><font color="red">';
+		echo $msg;
+		echo '</font></b>';
     }?>
-	<table align ="center">
-		<tr>
-			<th><font color='green'>Personal Information</font> </th>
+	<table >
+		<tr align="left">
+			<td ><h2>Personal Information</h2></td>
 		</tr>
 
 		<tr>
@@ -34,8 +38,8 @@ $form->prepare();
 		<tr>
 			<td><b>Confirm Email Address:<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('confirmemail'));?></td>
 		</tr>
-		<tr>
-			<th> <font color='green'>Company or Institution Information</font></th>
+		<tr align="left">
+			<td><h2>Company or Institution Information</h2></td>
 		</tr>
 
 		<tr>
@@ -52,13 +56,48 @@ $form->prepare();
 			<td><b>Business Phone<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('businessphone'));?></td>
 		</tr>
 
-		<tr>
-			<th><font color='green'>Address for invoicing (if different from Company/Institution address)</font></th>
+		<tr align="left">
+			<td><h2>Address for invoicing (if different from Company/Institution address)</h2></td>
 		</tr>
 
 		<tr>
 			<td><b>Invoice Address<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('inovoiceaddress'));?></td>
 		</tr>
+		</table>
+		<div style="width:760px">
+<?php
+		$title1 = 'Conference Fees';
+?>
+<h2><?php echo $this->escapeHtml($title1); ?></h2>
+
+<div >
+<table width="700" border="0" cellpadding="6">
+  <tr>
+    <td width="300" scope="row"><div align="left"><b>Conference</b></div></td>
+    <td width="370"><b>€150</b></td>
+  </tr>
+</table>
+<div style="margin-left:20px;">
+<ul>
+	<li>	Includes participation in all the conference sessions, conference material, lunch on Thursday and Friday and all coffee/tea during the breaks. </li>
+</ul>
+</div>
+<table width="700" border="0" cellpadding="6">
+  <tr>
+    <td width="300" scope="row"><div align="left"><b>Evening programme</b></div></td>
+    <td width="370"><b>€50,00 (incl. 19% VAT)</b></td>
+  </tr>
+</table>
+	<div style="margin-left:20px;">
+
+		<ul>
+			<li>	Includes dinner, evening concert and Big Band on Thursday.</li>
+		</ul>
+	</div>
+
+
+</div>
+		<table>
 		<tr>
 			<td><?php echo $this->formSubmit($form->get('Register'));?></td>
 		</tr>
@@ -66,3 +105,4 @@ $form->prepare();
 	</table>
 <?php echo $this->form()->closeTag();?>
 </div>
+</body>
