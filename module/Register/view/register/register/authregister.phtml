@@ -1,0 +1,9 @@
+<?php echo $this->something ?>
+
+<?php  if ($_SERVER['REMOTE_USER']) {?>
+	You are welcome to view this webpage
+<?php }
+else{  
+
+	echo "You are not authorized to view this webpage";
+ } ?>

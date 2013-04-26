@@ -8,6 +8,7 @@ use Register\Form\RegisterForm;
 use Zend\Form\Element;
 use Zend\Form\Form;
 
+
 class RegisterController extends AbstractActionController
 {
     public function indexAction()
@@ -64,4 +65,36 @@ class RegisterController extends AbstractActionController
         }
         return $this->registerTable;
     }
+		public function authregisterAction()
+    {	$one = $this->getRequest()->getServer();
+		if ($one) {
+
+			$this->view->something = "foo";
+		}
+		else{
+			return $this->redirect()->toRoute('register');
+		}
+    }
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
