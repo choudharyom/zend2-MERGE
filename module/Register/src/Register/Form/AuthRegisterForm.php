@@ -30,6 +30,9 @@ class AuthRegisterForm extends Form
 		$this->add(array(
             'name' => 'email',
             'type' => 'Text',
+            'attributes' => array(
+                'placeholder' => 'TU-Chemnitz Email id',
+            ),
             'options' => array(
                 
             ),
@@ -38,7 +41,9 @@ class AuthRegisterForm extends Form
             'name' => 'confirmemail',
             'type' => 'Text',
             'options' => array(
-                
+            'attributes' => array(
+                'placeholder' => 'TU-Chemnitz Email id',
+                ),
             ),
         ));
 		$this->add(array(

@@ -43,14 +43,14 @@
         </tr>
 
         <tr>
-            <td><b>Name:</b></td><td><?php echo $this->formRow($form->get('companyname'));?></td>
+            <td><b>Name:<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('companyname'));?></td>
         </tr>
         <tr>
-            <td><b>Street Address</b></td><td><?php echo $this->formRow($form->get('streetaddress'));?></td>
+            <td><b>Street Address<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('streetaddress'));?></td>
         </tr>
 
         <tr>
-            <td><b>City , State, Postal Code</b></td><td><?php echo $this->formRow($form->get('citystate'));?></td>
+            <td><b>City , State, Postal Code<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('citystate'));?></td>
         </tr>
         <tr>
             <td><b>Business Phone<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('businessphone'));?></td>
@@ -61,7 +61,7 @@
         </tr>
 
         <tr>
-            <td><b>Invoice Address<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('inovoiceaddress'));?></td>
+            <td><b>Invoice Address</b></td><td><?php echo $this->formRow($form->get('inovoiceaddress'));?></td>
         </tr>
     </table>
     <div style="width:760px">

@@ -102,6 +102,7 @@ class AuthRegister implements InputFilterAwareInterface
 							) 
 						), 
 					),
+
                 ),
             )));
 			$inputFilter->add($factory->createInput(array(
@@ -127,13 +128,14 @@ class AuthRegister implements InputFilterAwareInterface
 								'isEmpty' => 'Email address is required', 
 							) 
 						), 
-					),	
-                ),
-            )));			
+					),
 
-			$inputFilter->add($factory->createInput(array(
+                ),
+            )));
+
+            $inputFilter->add($factory->createInput(array(
                 'name'     => 'companyname',
-                'required' => false,
+                'required' => true,
                 'filters'  => array(
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),
@@ -143,15 +145,23 @@ class AuthRegister implements InputFilterAwareInterface
                         'name'    => 'StringLength',
                         'options' => array(
                             'encoding' => 'UTF-8',
-                            'min'      => 1,
+                            'min'      => 6,
                             'max'      => 100,
+                        ),
+                    ),
+                    array (
+                        'name' => 'NotEmpty',
+                        'options' => array(
+                            'messages' => array(
+                                'isEmpty' => 'Company or Institute name is required',
+                            )
                         ),
                     ),
                 ),
             )));
-			$inputFilter->add($factory->createInput(array(
+            $inputFilter->add($factory->createInput(array(
                 'name'     => 'streetaddress',
-                'required' => false,
+                'required' => true,
                 'filters'  => array(
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),
@@ -161,15 +171,23 @@ class AuthRegister implements InputFilterAwareInterface
                         'name'    => 'StringLength',
                         'options' => array(
                             'encoding' => 'UTF-8',
-                            'min'      => 1,
+                            'min'      => 6,
                             'max'      => 100,
+                        ),
+                    ),
+                    array (
+                        'name' => 'NotEmpty',
+                        'options' => array(
+                            'messages' => array(
+                                'isEmpty' => 'Street Address is required',
+                            )
                         ),
                     ),
                 ),
             )));
-			$inputFilter->add($factory->createInput(array(
+            $inputFilter->add($factory->createInput(array(
                 'name'     => 'citystate',
-                'required' => false,
+                'required' => true,
                 'filters'  => array(
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),
@@ -179,8 +197,16 @@ class AuthRegister implements InputFilterAwareInterface
                         'name'    => 'StringLength',
                         'options' => array(
                             'encoding' => 'UTF-8',
-                            'min'      => 1,
+                            'min'      => 4,
                             'max'      => 100,
+                        ),
+                    ),
+                    array (
+                        'name' => 'NotEmpty',
+                        'options' => array(
+                            'messages' => array(
+                                'isEmpty' => 'City, State, Postal Code is required',
+                            )
                         ),
                     ),
                 ),
@@ -211,7 +237,7 @@ class AuthRegister implements InputFilterAwareInterface
             )));
 			$inputFilter->add($factory->createInput(array(
                 'name'     => 'inovoiceaddress',
-                'required' => true,
+                'required' => false,
                 'filters'  => array(
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),
@@ -223,14 +249,6 @@ class AuthRegister implements InputFilterAwareInterface
                             'encoding' => 'UTF-8',
                         ),
                     ),
-					array ( 
-						'name' => 'NotEmpty', 
-						'options' => array( 
-							'messages' => array( 
-								'isEmpty' => 'Invoice address is required', 
-							) 
-						), 
-					),
                 ),
             )));
 			
