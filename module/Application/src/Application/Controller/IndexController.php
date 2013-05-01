@@ -12,6 +12,7 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-
+        $this->getServiceLocator()->get('Zend\Log')->INFO($_SERVER['REMOTE_ADDR']);
+        echo "<br />";
     }
 }

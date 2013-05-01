@@ -1,0 +1,3 @@
+AuthType shibboleth
+ShibRequireSession On
+Require affiliation ~ ^[^Aa][^Ll].+@tu-chemnitz\.de$

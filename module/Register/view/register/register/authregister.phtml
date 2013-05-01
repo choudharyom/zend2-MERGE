@@ -1,9 +1,77 @@
-<?php echo $this->something ?>
 
-<?php  if ($_SERVER['REMOTE_USER']) {?>
-	You are welcome to view this webpage
-<?php }
-else{  
+<body>
+<div class="hero-unit">
+    <?php
 
-	echo "You are not authorized to view this webpage";
- } ?>
+    echo '<b><a href="./">Home</a></b>';
+    $title = 'International Merge Technologies Conference';
+    $this->headTitle($title);
+    ?>
+    <h1><?php echo $this->escapeHtml($title); ?></h1>
+    <?php
+    $form = $this->form;
+    $form->setAttribute('action', $this->url('register', array('action' => 'authregister')));
+    $form->prepare();
+    ?>
+    <?php echo $this->form()->openTag($form);?>
+    <?php echo $this->formHidden($form->get('id'));?>
+    <br />
+    <?php if(isset($msg)){
+        echo '<b><font color="red">';
+        echo $msg;
+        echo '</font></b>';
+    }?>
+    <table >
+        <tr align="left">
+            <td ><h2>Personal Information</h2></td>
+        </tr>
+
+        <tr>
+            <td><b>First Name:<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('firstname'));;?></td>
+        </tr>
+        <tr>
+            <td><b>Last Name:<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('lastname'));?></td>
+        </tr>
+        <tr>
+            <td><b>Email Address:<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('email'));?></td>
+        </tr>
+        <tr>
+            <td><b>Confirm Email Address:<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('confirmemail'));?></td>
+        </tr>
+        <tr align="left">
+            <td><h2>Company or Institution Information</h2></td>
+        </tr>
+
+        <tr>
+            <td><b>Name:</b></td><td><?php echo $this->formRow($form->get('companyname'));?></td>
+        </tr>
+        <tr>
+            <td><b>Street Address</b></td><td><?php echo $this->formRow($form->get('streetaddress'));?></td>
+        </tr>
+
+        <tr>
+            <td><b>City , State, Postal Code</b></td><td><?php echo $this->formRow($form->get('citystate'));?></td>
+        </tr>
+        <tr>
+            <td><b>Business Phone<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('businessphone'));?></td>
+        </tr>
+
+        <tr align="left">
+            <td><h2>Address for invoicing (if different from Company/Institution address)</h2></td>
+        </tr>
+
+        <tr>
+            <td><b>Invoice Address<font color='red'>*</font></b></td><td><?php echo $this->formRow($form->get('inovoiceaddress'));?></td>
+        </tr>
+    </table>
+    <div style="width:760px">
+
+        <table>
+            <tr>
+                <td><?php echo $this->formSubmit($form->get('Register'));?></td>
+            </tr>
+
+        </table>
+        <?php echo $this->form()->closeTag();?>
+    </div>
+</body>

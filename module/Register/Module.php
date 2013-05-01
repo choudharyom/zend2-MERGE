@@ -42,6 +42,18 @@ class Module
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new Register());
                     return new TableGateway('user', $dbAdapter, null, $resultSetPrototype);
+
+                },
+                'Register\Model\AuthRegisterTable'=> function($sm){
+                    $tableGateway1 = $sm->get('AuthRegisterTableGateway');
+                    $table = new AuthRegisterTable($tableGateway1);
+                    return $table;
+                },
+                'AuthRegisterTableGateway' =>function($sm){
+                    $dbAdapter1 = $sm->get('Zend\Db\Adapter\Adapter');
+                    $resultSetPrototype = new ResultSet();
+                    $resultSetPrototype->setArrayObjectPrototype(new AuthRegister());
+                    return new TableGateway('AuthUser', $dbAdapter1, null, $resultSetPrototype);
                 },
             ),
         );
