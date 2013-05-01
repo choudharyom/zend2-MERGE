@@ -2,7 +2,8 @@
 return array(
     'modules' => array(
         'Logger',
-        'Register',  
+        'Register', 
+		'Export',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(
