@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Application\Controller;
+namespace Logger\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;

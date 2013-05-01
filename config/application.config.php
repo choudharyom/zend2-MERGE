@@ -1,7 +1,7 @@
 <?php
 return array(
     'modules' => array(
-        'Application',
+        'Logger',
         'Register',  
     ),
     'module_listener_options' => array(
