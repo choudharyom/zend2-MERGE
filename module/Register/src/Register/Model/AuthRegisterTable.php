@@ -36,7 +36,7 @@ class AuthRegisterTable
         return $row;
     }
 
-    public function saveRegister(Register $register)
+    public function saveRegister(AuthRegister $register)
     {
         $data = array(
             'firstname' => $register->firstname,

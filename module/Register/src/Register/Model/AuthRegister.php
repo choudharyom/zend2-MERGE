@@ -6,7 +6,7 @@ use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
 
-class Register implements InputFilterAwareInterface
+class AuthRegister implements InputFilterAwareInterface
 {
     public $id;
     public $firstname;

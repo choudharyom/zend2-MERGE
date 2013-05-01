@@ -2,7 +2,9 @@
 namespace Register;
 
 use Register\Model\Register;
+use Register\Model\AuthRegister;
 use Register\Model\RegisterTable;
+use Register\Model\AuthRegisterTable;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 
@@ -53,7 +55,7 @@ class Module
                     $dbAdapter1 = $sm->get('Zend\Db\Adapter\Adapter');
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new AuthRegister());
-                    return new TableGateway('AuthUser', $dbAdapter1, null, $resultSetPrototype);
+                    return new TableGateway('authuser', $dbAdapter1, null, $resultSetPrototype);
                 },
             ),
         );
