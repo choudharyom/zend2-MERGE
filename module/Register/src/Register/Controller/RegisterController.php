@@ -13,26 +13,9 @@ use Zend\Form\Form;
 
 class RegisterController extends AbstractActionController
 {
-    public function downloadAction()
-    {
-        $getRegisterTable= new ViewModel(array(
-            'albums' => $this->getRegisterTable()->fetchAll(),
-        ));
-        #$content=$getRegisterTable->fetch fetchAll();
-        $response = $this->getResponse();
-        $response->getHeaders()
-            ->addHeaderLine('Content-Type', 'text/csv')
-            ->addHeaderLine('Content-Disposition', "attachment; filename=\"export.csv\"")
-            ->addHeaderLine('Accept-Ranges', 'bytes')
-            ->addHeaderLine('Content-Length', strlen($getRegisterTable));
 
-        $response->setContent($content);
-        return $response;
-    }
     public function indexAction()
     {
-        $form = 123456;
-        return array('form' => $form);
     }
 
     public function addAction()
@@ -59,9 +42,7 @@ class RegisterController extends AbstractActionController
 
             if ($form->isValid()) {
                 $register->exchangeArray($form->getData());
-				#unset($register['confirmemail']);
                 $this->getRegisterTable()->saveRegister($register);
-                // Redirect to list of users
                 return $this->redirect()->toRoute('register');
             }
         }
@@ -88,6 +69,7 @@ class RegisterController extends AbstractActionController
 
 	public function authregisterAction()
     {
+        $this->getServiceLocator()->get('Zend\Log')->INFO($_SERVER['HTTP_SHIB_ORGPERSON_EMAILADDRESS']);
         $form = new AuthRegisterForm();
         $form->get('Register')->setValue('Register');
 

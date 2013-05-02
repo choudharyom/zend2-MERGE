@@ -55,7 +55,7 @@ class Module
                     $dbAdapter1 = $sm->get('Zend\Db\Adapter\Adapter');
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new AuthRegister());
-                    return new TableGateway('authuser', $dbAdapter1, null, $resultSetPrototype);
+                    return new TableGateway('AuthUser', $dbAdapter1, null, $resultSetPrototype);
                 },
             ),
         );

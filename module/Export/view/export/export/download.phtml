@@ -1,0 +1,84 @@
+<?php
+
+#$filename = './data/log/'.strtotime("now").'.csv';
+#$fp = fopen($filename,"w");
+$fp = fopen('php://memory', 'w');
+$seperator ="";
+$comma="";
+$seperator .=$comma.''.str_replace('','""','Id');
+$comma = ";";
+$seperator .=$comma.''.str_replace('','""','First name');
+$comma = ";";
+$seperator .=$comma.''.str_replace('','""','Last name');
+$comma = ";";
+$seperator .=$comma.''.str_replace('','""','Email');
+$comma = ";";
+$seperator .=$comma.''.str_replace('','""','Institute Name');
+$comma = ";";
+$seperator .=$comma.''.str_replace('','""','Street Address');
+$comma = ";";
+$seperator .=$comma.''.str_replace('','""','City, State');
+$comma = ";";
+$seperator .=$comma.''.str_replace('','""','Businessphone');
+$comma = ";";
+$seperator .=$comma.''.str_replace('','""','Inovoice Address');
+?>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Institute Name</th>
+        <th>Street Address</th>
+        <th>City, State</th>
+        <th>Businessphone</th>
+        <th>Inovoice Address</th>
+
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($datas as $data) : ?>
+        <tr>
+            <td><?php echo $this->escapeHtml($data->id);?></td>
+            <td><?php echo $this->escapeHtml($data->firstname);?></td>
+            <td><?php echo $this->escapeHtml($data->lastname);?></td>
+            <td><?php echo $this->escapeHtml($data->email);?></td>
+            <td><?php echo $this->escapeHtml($data->companyname);?></td>
+            <td><?php echo $this->escapeHtml($data->streetaddress);?></td>
+            <td><?php echo $this->escapeHtml($data->citystate);?></td>
+            <td><?php echo $this->escapeHtml($data->businessphone);?></td>
+            <td><?php echo $this->escapeHtml($data->inovoiceaddress);?></td>
+
+            <td>
+
+            </td>
+        </tr>
+
+        <?php
+
+
+
+        $seperator .="\n";
+        $seperator .=$comma.''.str_replace('','""',$data->firstname);
+        $comma = ";";
+        $seperator .=$comma.''.str_replace('','""',$data->lastname);
+        $comma = ";";
+        $seperator .=$comma.''.str_replace('','""',$data->email);
+        $comma = ";";
+        $seperator .=$comma.''.str_replace('','""',$data->companyname);
+        $comma = ";";
+        $seperator .=$comma.''.str_replace('','""',$data->streetaddress);
+        $comma = ";";
+        $seperator .=$comma.''.str_replace('','""',$data->citystate);
+        $comma = ";";
+        $seperator .=$comma.''.str_replace('','""',$data->businessphone);
+        $comma = ";";
+        $seperator .=$comma.''.str_replace('','""',$data->inovoiceaddress);
+        $comma = ";";
+
+
+    endforeach;
+    fputs($fp,$seperator);
+    ?>
+</table>
